@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+      /* FOUC fix */
+      html {
+        visibility: hidden;
+        opacity: 0;
+      }
+    </style>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,23 +18,167 @@
   <body>
     <div class="container">
       <header class="header">
-        <div class="header-logo"><img src="./assets/logo-horizontal-inverted-1.png" alt="logo" /></div>
-        <menu class="menu">
-          <ul class="menu-nav">
-            <li class="menu-nav__link"><a href="#">О проекте</a></li>
-            <li class="menu-nav__link"><a href="#">Условия участия</a></li>
+        <div class="header-logo">
+          <a href="#"><img src="./assets/logo-horizontal-inverted-1.png" alt="logo" /></a>
+        </div>
+        <menu class="header-menu">
+          <ul class="header-menu__list">
+            <li class="header-menu__link"><a href="#">О проекте</a></li>
+            <li class="header-menu__link"><a href="#">Условия участия</a></li>
           </ul>
         </menu>
-        <main class="main">
-          <div class="main-heading">
-            <h3>Разработка чат-бота для подразделения Университета ИТМО</h3>
-          </div>
-          <div class="main-article"></div>
-          <aside class="main-aside">
-            <a href="#">Реализовать инициативу</a>
-          </aside>
-        </main>
       </header>
+      <main class="main">
+        <div class="main-heading">
+          <h3 class="main-heading__layer">Разработка чат-бота для подразделения Университета ИТМО</h3>
+          <h3 class="main-heading__shadow">Разработка чат-бота для подразделения Университета ИТМО</h3>
+        </div>
+        <div class="article">
+          <div class="article-image"><img src="./assets/robo.png" alt="article image" /></div>
+        </div>
+        <div class="article-text">
+          <p>
+            Студенческий офис, как единый информационный центр, сталкивается с множеством обращений, которые схожи по своей сути и приводят к
+            одинаковым ответам, но создают большую нагрузку на сотрудников. Одним из наиболее популярных форматов обращений является использование
+            формы обратной связи, что свидетельствует о том, что студентам удобно задавать вопросы и получать ответы в текстовом формате. В данный
+            момент ответы на обращения можно получить только в период работы офиса. Изменить эту ситуацию может внедрение чат-бота для студенческого
+            офиса. Чат-бот — специально обученная программа, которая имитирует речевое поведение человека в переписке, анализируют заданный вопрос и
+            подбирает ответы из заранее сформированного реестра. В компании МТС сообщают, что 80% клиентов компании устраивают ответы, полученные от
+            ботов. Также в компании прогнозируют, что к 2023 году 80% общения с клиентами будет осуществляться в автоматическом режиме. Эффективность
+            использования чат-ботов доказывает и исследование разработчика CRM-системы Salesforce, проведенное в прошлом году. Согласно полученным
+            данным, 69% клиентов предпочитают использовать чат-бот для связи с компанией и решения возникающих вопросов. 35% опрошенных полагают, что
+            чат-боты более эффективны и удобны, чем приложение, для ответов на простые вопросы и разрешения нестандартных ситуаций. Предлагается
+            создать чат-бота для ответов на популярные обращения в студенческий офис на платформе Телеграм. Для успешной реализации проекта необходимо
+            совместно со студенческим офисом разработать реестр вопросов и ответов, на основе которого провести обучение бота. В итоге студенты смогут
+            получать ответы на большое количество вопросов мгновенно и в любое время суток.
+          </p>
+        </div>
+        <div class="comments">
+          <div class="comments-add">
+            <p class="comments-add heading">Оставить комментарий</p>
+            <textarea name="comment" cols="30" rows="10"></textarea>
+            <a class="comments-add__send"><img src="./assets/send-button.png" alt="send button" /></a>
+          </div>
+          <div class="list">
+            <div class="list-item">
+              <div class="list-item__name heading">Геннадий Сергейчик</div>
+              <div class="list-item__time">27 дней назад в 20:48</div>
+              <div class="list-item__text">
+                <p>
+                  А вы, для начала, попробуйте восстановить просто трамвайную ветку, по 39-й линии, до ЖК"Красный Аксай", да по Ченцова, от 14-й
+                  линии, до 26-й, как было до войны, у "плохих" коммунистов, и посмотрите окупаемость, сейчас стало модно всё считать, демократия-с.
+                  Тут только по Ченцова сколько надо перекладывать коммуникаций из-за простых рельсов. А мечтать о монорельсе, так посмотрите, как в
+                  Москве, с чем уже столкнулись, с какими проблемами. А ведь там средств побольше.
+                </p>
+              </div>
+              <div class="list-item__replyButton">
+                <a href="#">Ответить</a>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div class="list-item__name heading">Сергей Калюжный</div>
+              <div class="list-item__time">22 дня назад в 12:34</div>
+              <div class="list-item__text">
+                <p>Все проблемы от лени и нежелания! Трамвай восстановить!))) Так давайте на (каретах) ездить. Наймем кучеров вместо водителей)</p>
+              </div>
+              <div class="list-item__replyButton">
+                <a href="#">Ответить</a>
+              </div>
+            </div>
+
+            <div class="list-item reply">
+              <div class="list-item__name heading">Иван Малышев</div>
+              <div class="list-item__time">22 дня назад в 12:34</div>
+              <div class="list-item__text">
+                <p>
+                  К чему эти крайности? Трамвай в европе сейчас - это самый современный вид транспорта. <br />
+                  Конечно, речь о современном трамвае, а не о том, что у нас по Горького и Станиславского ходит.
+                </p>
+              </div>
+              <div class="list-item__replyButton">
+                <a href="#">Ответить</a>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div class="list-item__name heading">Константин Чураков</div>
+              <div class="list-item__time">27 дня назад в 20:48</div>
+              <div class="list-item__text">
+                <p>
+                  Один день для Вас не в счет? Геннадий а не будет ли два снегопада в следующем году? Я понял деньгами Вас работать не заставишь. Вам
+                  пол дня прогулять за оклад подавай. Но это не демократия. Это менталитет.
+                </p>
+              </div>
+              <div class="list-item__replyButton">
+                <a href="#">Ответить</a>
+              </div>
+            </div>
+
+            <div class="comments-add">
+              <div class="list-item__replyButton">
+                <a href="#">Отмена</a>
+              </div>
+              <p class="comments-add heading">Оставить комментарий</p>
+              <textarea name="comment" cols="30" rows="10">
+Ок. Тогда зачем старые рельсы выдернули от северного, по нагибина, по текучева и буденновскому , до ц. Рынка??? Новые не положили и все в асфальт. А металл продали и и бабки попелили(((</textarea
+              >
+              <a class="comments-add__send"><img src="./assets/send-button.png" alt="send button" /></a>
+            </div>
+          </div>
+        </div>
+        <aside class="aside">
+          <a href="#">Реализовать инициативу</a>
+          <div class="aside-vote">
+            <p class="aside-vote heading">Голосовать</p>
+            <div class="aside-vote__pros"><a href="#">За</a></div>
+            <div class="aside-vote__cons"><a href="#">Против</a></div>
+          </div>
+          <div class="aside-stats">
+            <p class="aside-stats heading">Статистика</p>
+            <div class="aside-stats__bar">
+              <div class="pros"></div>
+              <div class="cons"></div>
+            </div>
+            <p class="aside-stats__results">За: <span>11 789</span></p>
+            <p class="aside-stats__results">Против: <span>23 213</span></p>
+            <p class="aside-stats__results">Всего: <span>35 002</span></p>
+          </div>
+          <div class="aside-share">
+            <div>
+              <a class="aside-share__item" href="#"><img src="./assets/logo-facebook.png" alt="facebook.com" /></a>
+              <a class="aside-share__item" href="#"><img src="./assets/logo-vk.png" alt="vk.ru" /></a>
+              <a class="aside-share__item" href="#"><img src="./assets/logo-twitter.png" alt="twitter.com" /></a>
+              <a class="aside-share__item" href="#"><img src="/assets/logo-ok.png" alt="ok.ru" /></a>
+            </div>
+          </div>
+          <div class="aside-term">
+            <p class="aside-term heading">Сроки</p>
+            <p class="aside-stats__results">До конца голосования осталось: <span>41 день</span></p>
+          </div>
+        </aside>
+      </main>
+      <footer class="footer">
+        <div class="header-logo">
+          <a href="#"><img src="./assets/logo-horizontal-inverted-1.png" alt="logo" /></a>
+        </div>
+        <menu class="header-menu">
+          <ul class="header-menu__list">
+            <li class="header-menu__link"><a href="#">О проекте</a></li>
+            <li class="header-menu__link"><a href="#">Условия участия</a></li>
+          </ul>
+        </menu>
+        <div class="footer-info">
+          <div class="footer-info left">
+            <div class="footer-info__item"><a href="#">Информация © 1993–2020 Университет ИТМО</a></div>
+            <div class="footer-info__item"><a href="#">Правила использования информации в доменной зоне itmo.ru</a></div>
+          </div>
+          <div class="footer-info right">
+            <div class="footer-info__item">Остались вопросы? Пишите <a href="#">future@itmo.ru</a></div>
+            <div class="footer-info__item"><a href="#">Политика обработки данных</a></div>
+          </div>
+        </div>
+      </footer>
     </div>
   </body>
 </html>

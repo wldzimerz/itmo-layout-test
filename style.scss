@@ -1,26 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;1,700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  margin: 0 auto;
   background-color: #0e0e5b;
-  background-image: url("./assets/background.png");
-  background-repeat: no-repeat;
-  background-position: top center;
+  min-height: 100vh;
+  width: 100%;
+  font-size: 1em;
+  font-family: "Montserrat", sans-serif;
 }
 
 .container {
-  display: block;
+  background-image: url("./assets/background.png");
+  background-position: top center;
+  background-repeat: no-repeat;
   margin: 0 auto;
-  width: 1920px;
+  width: 1400px;
+  height: 100%;
+  padding: 40px 60px;
 }
 
+/* common */
+
+.heading {
+  font-size: 30px;
+}
+
+/* header */
+
 .header {
-  width: 100%;
+  max-width: inherit;
   display: flex;
-  .header-logo {
+}
+
+.header-logo {
+  display: block;
+  margin: 0 auto 0 0;
+}
+.header-menu {
+  margin: 0 0 auto 0;
+  .header-menu__list {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 40px;
+    list-style: none;
+    .header-menu__link {
+      a {
+        &:link,
+        &:visited {
+          display: block;
+          margin: 0 0 0 60px;
+          text-decoration: none;
+          font-weight: 500;
+          font-style: normal;
+          color: #fff;
+          transition: all 0.3s ease-out;
+        }
+        &:hover,
+        &:active {
+          text-decoration: underline;
+          color: #6666d1;
+        }
+      }
+    }
+  }
+}
+
+/* main section */
+
+.main {
+  margin-top: 60px;
+  .main__heading {
+    .main-heading__layer {
+      display: block;
+    }
+    .main-heading__shadow {
+      display: block;
+    }
+  }
+  .article {
+    .article-image {
+      img {
+        display: block;
+      }
+    }
+    .article-text {
+      p {
+        display: block;
+      }
+    }
+  }
+  .comments {
+    .comments-add {
+      display: block;
+    }
+    textarea {
+      display: block;
+    }
+    .comments-add__send {
+      display: block;
+    }
+  }
+  .list {
+    .list-item {
+      .list-item__name {
+        display: block;
+      }
+      .list-item__time {
+        display: block;
+      }
+      .list-item__text {
+        p {
+          display: block;
+        }
+      }
+      .list-item__replyButton {
+        a {
+          display: block;
+        }
+      }
+    }
+    .reply {
+      display: block;
+    }
+  }
+  .aside {
+    .aside-vote {
+      .aside-vote__pros {
+        display: block;
+      }
+      .aside-vote__cons {
+        display: block;
+      }
+    }
+    .aside-stats {
+      .aside-stats__bar {
+        .pros {
+          display: block;
+        }
+        .cons {
+          display: block;
+        }
+      }
+    }
+    .aside-stats__results {
+      span {
+        font-weight: bold;
+      }
+    }
+    .aside-share {
+      .aside-share__item {
+        a {
+          display: block;
+        }
+      }
+    }
+    .aside-term {
+      display: block;
+    }
+  }
+}
+
+/* footer */
+
+.footer {
+  .footer-info {
+    .footer-info__item {
+      a {
+        display: block;
+      }
+    }
+  }
+  .left {
     display: block;
   }
+  .right {
+    display: block;
+  }
+}
+
+/* FOUC fix */
+
+html {
+  visibility: visible;
+  opacity: 1;
 }

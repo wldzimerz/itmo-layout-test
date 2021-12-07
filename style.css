@@ -14,14 +14,94 @@ body {
   background-position: top center;
   background-size: cover;
   background-attachment: fixed;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 769px) {
+  body {
+    font-size: 14px;
+    width: 769px;
+  }
 }
 
 .container {
   margin: 0 auto;
   width: 1920px;
+  box-sizing: border-box;
   height: 100%;
 }
 
+/* media queries */
+@media screen and (max-width: 769px) {
+  body {
+    font-size: 14px;
+    width: 769px;
+  }
+
+  .container {
+    width: 769px;
+    padding: 30px 15px;
+  }
+
+  .header .header-logo {
+    margin: auto auto auto 0;
+  }
+  .header .header-logo img {
+    width: 224px;
+    height: 24px;
+  }
+
+  .main {
+    grid-template-areas: "head" "article" "aside" "comments";
+  }
+
+  .article .article-image {
+    margin: 50px 0;
+  }
+  .article .article-text p:not(:first-child) {
+    display: none;
+  }
+  .article .list-item__replyButton .hidden {
+    display: block;
+  }
+
+  .aside {
+    margin: 35px auto;
+    display: grid;
+    grid-template-areas: "button button" "vote share" "stats term";
+    gap: 30px;
+  }
+  .aside .aside-button {
+    grid-area: button;
+    width: 50%;
+  }
+  .aside .aside-vote {
+    grid-area: vote;
+  }
+  .aside .aside-share {
+    grid-area: share;
+    margin: 30px 0 0 0;
+  }
+  .aside .aside-stats {
+    grid-area: stats;
+  }
+  .aside .aside-term {
+    grid-area: term;
+    margin: 0;
+  }
+
+  .footer .header {
+    display: none;
+  }
+
+  .footer-info .footer-info__list.left {
+    display: none;
+  }
+  .footer-info .footer-info__list.right {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+  }
+}
 /* common */
 .heading {
   font-size: 1.6em;
@@ -71,11 +151,28 @@ body {
   margin: 20%;
 }
 
+.list-item__replyButton a {
+  color: #2ed4e2;
+  text-shadow: 0px 0px 15px #73f4ffcc;
+  font-style: normal;
+  font-size: 1.3em;
+}
+.list-item__replyButton a:link, .list-item__replyButton a:visited {
+  text-decoration: none;
+}
+.list-item__replyButton a:hover, .list-item__replyButton a:active {
+  text-decoration: underline;
+}
+
 /* header */
 .header {
   max-width: inherit;
   display: flex;
-  padding: 40px 60px;
+}
+@media screen and (min-width: 769px) {
+  .header {
+    padding: 40px 60px;
+  }
 }
 
 .header-logo {
@@ -113,15 +210,23 @@ body {
 
 /* main section */
 .main {
-  display: grid;
-  grid-template-columns: 55% 42%;
-  grid-template-areas: "head head" "main aside";
   margin: 60px auto 0;
-  padding: 0 350px;
+  display: grid;
+}
+@media screen and (min-width: 769px) {
+  .main {
+    padding: 0 350px;
+    grid-template-columns: 55% 42%;
+    grid-template-areas: "head head" "article aside" "comments aside";
+  }
 }
 .main .main-heading {
-  margin: 80px auto 100px;
   grid-area: head;
+}
+@media screen and (min-width: 769px) {
+  .main .main-heading {
+    margin: 80px auto 100px;
+  }
 }
 .main .main-heading .main-heading__layer {
   font-size: 2.3em;
@@ -131,10 +236,12 @@ body {
   text-shadow: 3px 3px #2ed4e2, 0 0 20px #73f4ff;
 }
 .main .article {
-  grid-area: main;
+  grid-area: article;
 }
-.main .article .article-image {
-  margin: 0 0 60px 0;
+@media screen and (min-width: 769px) {
+  .main .article .article-image {
+    margin: 0 0 60px 0;
+  }
 }
 .main .article .article-image img {
   width: 100%;
@@ -152,8 +259,17 @@ body {
   color: #afc6e1;
   text-shadow: 1px 1px 1px #000;
 }
+@media screen and (min-width: 769px) {
+  .main .article .list-item__replyButton .hidden {
+    display: none;
+  }
+}
 .main .comments {
+  grid-area: comments;
   margin: 170px 0 0 0;
+}
+.main .list {
+  grid-area: comments;
 }
 .main .list .list-item {
   margin: 80px 0 0 0;
@@ -174,18 +290,6 @@ body {
   font-style: normal;
   margin: 25px 0;
 }
-.main .list .list-item__replyButton a {
-  color: #2ed4e2;
-  text-shadow: 0px 0px 15px #73f4ffcc;
-  font-style: normal;
-  font-size: 1.3em;
-}
-.main .list .list-item__replyButton a:link, .main .list .list-item__replyButton a:visited {
-  text-decoration: none;
-}
-.main .list .list-item__replyButton a:hover, .main .list .list-item__replyButton a:active {
-  text-decoration: underline;
-}
 .main .list .comments-add .list-item__replyButton {
   margin: 25px 0;
 }
@@ -194,16 +298,18 @@ body {
 }
 .main .aside {
   grid-area: aside;
-  margin-left: 100px;
   box-sizing: border-box;
+}
+@media screen and (min-width: 769px) {
+  .main .aside {
+    margin-left: 100px;
+  }
 }
 .main .aside .aside-button {
   font-size: 1.3em;
   font-weight: 600;
   font-style: normal;
   box-sizing: border-box;
-  margin: 0 auto;
-  width: 100%;
   background: linear-gradient(90deg, #fcf565 0%, #d5793f 100%);
   box-shadow: 0px 0px 20px #e9b85380;
   border-radius: 3px;
@@ -212,6 +318,12 @@ body {
   padding: 1em 2em;
   transform: skewX(170deg);
   text-align: center;
+}
+@media screen and (min-width: 769px) {
+  .main .aside .aside-button {
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 .main .aside .aside-button span {
   display: inline-block;
@@ -330,8 +442,10 @@ body {
   font-weight: 600;
   color: #fff;
 }
-.main .aside .aside-share {
-  margin: 80px auto;
+@media screen and (min-width: 769px) {
+  .main .aside .aside-share {
+    margin: 80px auto;
+  }
 }
 .main .aside .aside-share .heading {
   margin: 50px auto;
@@ -361,8 +475,10 @@ body {
   background: linear-gradient(90deg, #ac50d2 0%, #4537b7 100%);
   border-radius: 2px;
 }
-.main .aside .aside-term {
-  margin: 80px auto 0;
+@media screen and (min-width: 769px) {
+  .main .aside .aside-term {
+    margin: 80px auto 0;
+  }
 }
 .main .aside .aside-term .aside-stats__results {
   margin: 50px auto 0;
@@ -376,15 +492,21 @@ body {
 }
 
 /* footer */
-.footer .footer-info {
-  padding: 30px 60px 40px;
-  display: flex;
-  justify-content: space-between;
+@media screen and (min-width: 769px) {
+  .footer .footer-info {
+    padding: 30px 60px 40px;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 .footer .footer-info .footer-info__list .footer-info__item {
   color: #b0c6e1;
-  margin: 5px auto;
   font-size: 0.9em;
+}
+@media screen and (min-width: 769px) {
+  .footer .footer-info .footer-info__list .footer-info__item {
+    margin: 5px auto;
+  }
 }
 .footer .footer-info .footer-info__list .footer-info__item a {
   color: #b0c6e1;
